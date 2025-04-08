@@ -22,52 +22,18 @@ function draw() {
  piramide(60)
 }
 
-function piramide(t){
-textureMode(NORMAL)
- 
-//base
-  texture(foto)
-  beginShape();
-  vertex(-t,-t,-t,0,0);
-  vertex(t,-t,-t,1,0);
-  vertex(t,t,-t,1,1);
-  vertex(-t,t,-t,0,1);
-  vertex(-t,-t,-t,0,0);
-  endShape()
-  
-  //cara 1
-  texture(foto)
+function Cubo3D(x,y,z,t){
+  push()
+  translate(x,y,z)
+
+  //base
   beginShape()
-  vertex(0,0,t,0.5,0)
-  vertex(-t,-t,-t,0,1)
-  vertex(t,-t,-t,1,1)
-  vertex(0,0,t,0.5,0)
+  vertex(-t,-t,-t)
+  vertex(t,-t,-t)
+  vertex(t,t,-t)
+  vertex(-t,t,-t)
   endShape()
 
-  //cara 2
-  texture(foto)
-  beginShape()
-  vertex(0,0,t,0.5,0)
-  vertex(t,-t,-t,1,1)
-  vertex(t,t,-t,0,1)
-  vertex(0,0,t,0.5,0)
-  endShape()
 
-  //cara 3
-  texture(foto)
-  beginShape()
-  vertex(0,0,t,0.5,0)
-  vertex(t,t,-t,1,1)
-  vertex(-t,t,-t,0,1)
-  vertex(0,0,t,0.5,0)
-  endShape()
-
-  //cara 4
-  texture(foto)
-  beginShape()
-  vertex(0,0,t,0.5,0)
-  vertex(-t,t,-t,1,1)
-  vertex(-t,-t,-t,0,1)
-  vertex(0,0,t,0.5,0)
-  endShape()
-}
+  pop()
+}  
