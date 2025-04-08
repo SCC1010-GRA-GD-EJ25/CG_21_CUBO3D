@@ -16,22 +16,41 @@ function draw() {
   background(255)
   rotateX(frameCount*0.01)
 
- piramide(150)
- fill(255,0,0,0)
- translate(300,0,0)
- piramide(60)
+  cubo3D(0,0,0,100)
 }
 
-function Cubo3D(x,y,z,t){
-  push()
+function cubo3D(x,y,z,t){
+  textureMode(NORMAL)
   translate(x,y,z)
 
   //base
+  texture(foto)
   beginShape()
-  vertex(-t,-t,-t)
-  vertex(t,-t,-t)
-  vertex(t,t,-t)
-  vertex(-t,t,-t)
+  vertex(-t,-t,-t,0,0)
+  vertex(t,-t,-t,1,0)
+  vertex(t,t,-t,1,1)
+  vertex(-t,t,-t,0,1)
+  vertex(-t,-t,-t,0,0)
+  endShape()
+
+  //cara arriba
+  texture(foto)
+    beginShape()
+    vertex(-t,-t,t,0,0)
+    vertex(t,-t,t,1,0)
+    vertex(t,t,t,1,1)
+    vertex(-t,t,t,0,1)
+    vertex(-t,-t,t,0,0)
+    endShape()
+
+  //cara derecha
+  texture(foto)
+  beginShape()
+  vertex(-t,-t,-t,0,0)
+  vertex(t,-t,-t,1,0)
+  vertex(t,-t,t,1,1)
+  vertex(-t,-t,t,0,1)
+  vertex(-t,-t,-t,0,0)
   endShape()
 
 
